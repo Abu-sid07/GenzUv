@@ -1,0 +1,132 @@
+@use '../styles/variables' as *;
+
+.faq {
+  padding: $section-padding-y $section-padding-x;
+  background: $color-bg-alt;
+}
+
+.faq-container {
+  max-width: $container-max;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
+  align-items: start;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+.faq-sidebar {
+  .faq-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-purple;
+    margin-bottom: 10px;
+  }
+
+  .faq-title {
+    font-family: $font-serif;
+    font-size: clamp(30px, 3.8vw, 42px);
+    font-weight: 700;
+    color: $color-text;
+    line-height: 1.15;
+    margin: 0 0 16px 0;
+  }
+
+  .faq-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: $color-text-muted;
+    margin: 0 0 32px 0;
+  }
+
+  .faq-whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: $color-green;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: $radius-pill;
+    text-decoration: none;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background: $color-green-hover;
+    }
+  }
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: #FFFFFF;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    border-color: #CEC7BC;
+  }
+
+  &--open {
+    border-color: #CEC7BC;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 22px 24px;
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    gap: 16px;
+
+    &__text {
+      font-size: 16px;
+      font-weight: 600;
+      color: $color-text;
+      font-family: $font-serif;
+    }
+
+    &__icon {
+      font-size: 20px;
+      font-weight: 700;
+      color: $color-text-muted;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    &:hover .faq-question__text {
+      color: $color-purple;
+    }
+  }
+
+  .faq-answer {
+    padding: 0 24px 22px 24px;
+
+    p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: $color-text-muted;
+      margin: 0;
+    }
+  }
+}

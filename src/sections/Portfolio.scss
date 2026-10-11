@@ -1,0 +1,252 @@
+@use '../styles/variables' as *;
+
+.portfolio {
+  padding: $section-padding-y $section-padding-x;
+  background: $color-bg;
+}
+
+.portfolio-container {
+  max-width: $container-max;
+  margin: 0 auto;
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+
+  @media (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .portfolio-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-purple;
+    margin-bottom: 8px;
+  }
+
+  .portfolio-title {
+    font-family: $font-serif;
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 700;
+    color: $color-text;
+    margin: 0 0 8px 0;
+  }
+
+  .portfolio-subtitle {
+    font-size: 15px;
+    color: $color-text-muted;
+    margin: 0;
+  }
+
+  .portfolio-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-text;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-purple;
+    }
+  }
+}
+
+.portfolio-cards-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-card:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .portfolio-card:nth-child(4) {
+    grid-column: auto;
+  }
+}
+
+.portfolio-card {
+  border-radius: $radius-lg;
+  padding: 36px 32px 0;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  &__content {
+    margin-bottom: 24px;
+    z-index: 2;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+  }
+
+  &__subtitle {
+    font-size: 13px;
+    opacity: 0.9;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__device {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+  }
+}
+
+/* Device Frames */
+.device-laptop {
+  width: 90%;
+  background: #E8E5DF;
+  border-radius: 12px 12px 0 0;
+  padding: 10px 10px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  .device-screen {
+    background: #FFFFFF;
+    border-radius: 6px 6px 0 0;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+
+    .screen-header {
+      background: #F4F1EA;
+      padding: 8px 12px;
+      display: flex;
+      gap: 6px;
+
+      .screen-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #D5CEC2;
+      }
+    }
+
+    .screen-content {
+      padding: 24px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: #17151A;
+      flex-grow: 1;
+    }
+  }
+}
+
+.device-mobile {
+  width: 190px;
+  background: #FFFFFF;
+  border-radius: 24px 24px 0 0;
+  padding: 12px 10px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 4px solid #17151A;
+  border-bottom: none;
+
+  .mobile-notch {
+    width: 50px;
+    height: 4px;
+    background: #17151A;
+    border-radius: $radius-pill;
+    margin: 0 auto 12px;
+  }
+
+  .mobile-screen {
+    background: #FAF7F2;
+    min-height: 220px;
+    padding: 20px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #17151A;
+  }
+}
+
+.device-dashboard {
+  width: 95%;
+  background: #FFFFFF;
+  border-radius: 12px 12px 0 0;
+  padding: 12px 12px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  .dashboard-screen {
+    background: #FAF7F2;
+    border-radius: 8px 8px 0 0;
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+
+    .screen-header {
+      background: #EFEBE4;
+      padding: 8px 12px;
+      display: flex;
+      gap: 6px;
+
+      .screen-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #CFC7B9;
+      }
+    }
+
+    .screen-content {
+      padding: 24px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: #17151A;
+      flex-grow: 1;
+    }
+  }
+}
+
+.portfolio-note {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: $color-text-muted;
+
+  .note-icon {
+    font-size: 14px;
+  }
+}

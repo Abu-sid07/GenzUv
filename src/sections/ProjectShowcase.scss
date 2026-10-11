@@ -1,0 +1,234 @@
+@use '../styles/variables' as *;
+
+.showcase {
+  padding: 50px $section-padding-x 60px;
+  background: $color-bg;
+  border-top: $border-subtle;
+}
+
+.showcase-container {
+  max-width: $container-max;
+  margin: 0 auto;
+  position: relative;
+}
+
+.showcase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.showcase-title {
+  font-family: $font-serif;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: $color-text;
+}
+
+.showcase-tabs {
+  display: flex;
+  gap: 0;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  overflow: hidden;
+}
+
+.showcase-tab {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 600;
+  color: $color-text-muted;
+  cursor: pointer;
+  transition: background-color $transition-fast, color $transition-fast;
+
+  &:not(:last-child) {
+    border-right: 1px solid $color-border;
+  }
+
+  &.is-active {
+    background: $color-bg-alt;
+    color: $color-text;
+  }
+
+  &:hover:not(.is-active) {
+    background: rgba($color-bg-alt, 0.5);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-purple;
+    outline-offset: -2px;
+  }
+}
+
+/* Grid layout */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.showcase-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.showcase-frame {
+  background: $color-bg-alt;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.showcase-frame--small {
+  padding: 16px;
+  min-height: 120px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.showcase-frame--main {
+  border: 2px solid $color-purple;
+  border-radius: $radius-md;
+  display: flex;
+  flex-direction: column;
+}
+
+.showcase-frame-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+}
+
+.showcase-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: $color-text;
+}
+
+.showcase-gear {
+  font-size: 18px;
+  color: $color-text-muted;
+}
+
+.showcase-frame-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 14px;
+  background: $color-bg-card;
+  margin: 0 10px;
+  border-radius: $radius-sm;
+  min-height: 100px;
+}
+
+.showcase-frame-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.showcase-status {
+  color: $color-purple;
+  font-weight: 600;
+}
+
+.showcase-placeholder {
+  font-size: 11px;
+  color: $color-text-muted;
+  font-style: italic;
+}
+
+.showcase-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.showcase-devnote {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  color: $color-green;
+  letter-spacing: 0.3px;
+}
+
+.showcase-devnote-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $color-green;
+}
+
+/* Responsive */
+@media (max-width: $bp-tablet) {
+  .showcase-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .showcase-center {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+
+  .showcase-bottom {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .showcase-devnote {
+    position: static;
+    margin-top: 16px;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .showcase-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .showcase-tabs {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .showcase-tab {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-bottom {
+    grid-template-columns: 1fr;
+  }
+}

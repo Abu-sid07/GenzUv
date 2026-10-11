@@ -1,0 +1,127 @@
+@use '../styles/variables' as *;
+
+.services {
+  padding: $section-padding-y $section-padding-x;
+  background: $color-bg;
+}
+
+.services-container {
+  max-width: $container-max;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.service-card {
+  background: #FFFFFF;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: 36px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: transform $transition-fast, box-shadow $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-sm;
+    border-color: #CEC7BC;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  &__number {
+    font-family: $font-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: $color-text;
+    line-height: 1;
+  }
+
+  &__tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    background: #F4EFEB;
+    color: $color-text-muted;
+    border-radius: $radius-pill;
+    border: 1px solid #ECE5DC;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-text;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.01em;
+  }
+
+  &__desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: $color-text-muted;
+    margin: 0 0 28px 0;
+    flex-grow: 1;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #F0ECE4;
+  }
+
+  &__enquire {
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-text;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-purple;
+    }
+  }
+
+  &__arrow-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $color-text;
+    color: #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color $transition-fast, transform $transition-fast;
+
+    &:hover {
+      background: $color-purple;
+      transform: scale(1.08);
+    }
+  }
+}

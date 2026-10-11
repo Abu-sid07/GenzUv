@@ -1,0 +1,227 @@
+@use '../styles/variables' as *;
+
+.growth-system {
+  padding: 100px $section-padding-x 80px;
+  background: $color-bg;
+}
+
+.growth-container {
+  max-width: $container-max;
+  margin: 0 auto;
+}
+
+.growth-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 60px;
+
+  .growth-title {
+    font-family: $font-serif;
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 700;
+    color: $color-text;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px 0;
+  }
+
+  .growth-subtitle {
+    font-size: 16px;
+    line-height: 1.6;
+    color: $color-text-muted;
+    margin: 0;
+  }
+}
+
+.growth-graph-wrapper {
+  position: relative;
+  min-height: 1240px;
+  max-width: 960px;
+  margin: 0 auto;
+
+  @media (max-width: $breakpoint-tablet) {
+    min-height: auto;
+  }
+}
+
+.growth-connector-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+.growth-nodes-list {
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: $breakpoint-tablet) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.growth-node {
+  width: 280px;
+  position: absolute;
+  background: #FFFFFF;
+  border-radius: $radius-lg;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 24px 22px;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.09);
+  }
+
+  .node-pin {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  }
+
+  .node-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .node-number {
+    font-family: $font-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+
+  .node-title {
+    font-family: $font-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-text;
+    margin: 0 0 8px 0;
+  }
+
+  .node-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: $color-text-muted;
+    margin: 0;
+  }
+
+  /* Themes matching Figma cards */
+  &--cream {
+    background: #FAF6EF;
+    border-color: #EFE8DC;
+  }
+
+  &--purple {
+    background: #F2EEFA;
+    border-color: #E4DCF3;
+  }
+
+  &--lavender {
+    background: #F7EFF9;
+    border-color: #ECDDF0;
+  }
+
+  &--mint {
+    background: #EDF7F1;
+    border-color: #D6EDE0;
+  }
+
+  /* Exact positions on Desktop canvas */
+  &--pos-1 {
+    top: 20px;
+    left: 18%;
+  }
+
+  &--pos-2 {
+    top: 210px;
+    left: 54%;
+  }
+
+  &--pos-3 {
+    top: 420px;
+    left: 22%;
+  }
+
+  &--pos-4 {
+    top: 630px;
+    left: 50%;
+  }
+
+  &--pos-5 {
+    top: 840px;
+    left: 24%;
+  }
+
+  &--pos-6 {
+    top: 1050px;
+    left: 44%;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    position: static;
+    width: 100%;
+    transform: none;
+
+    .node-pin {
+      position: static;
+      transform: none;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.growth-footer {
+  margin-top: 60px;
+  padding-top: 32px;
+  border-top: 1px solid $color-border;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+
+  @media (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .growth-footer-text {
+    font-family: $font-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-text;
+    margin: 0;
+  }
+
+  .growth-footer-btn {
+    padding: 12px 28px;
+    border-radius: $radius-pill;
+    background: transparent;
+    color: $color-text;
+    border: 1px solid $color-text;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color $transition-fast, color $transition-fast;
+    white-space: nowrap;
+
+    &:hover {
+      background: $color-text;
+      color: #FFFFFF;
+    }
+  }
+}

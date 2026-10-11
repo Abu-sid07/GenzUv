@@ -1,0 +1,165 @@
+@use '../styles/variables' as *;
+
+.hero {
+  min-height: 475px;
+  padding: 90px 24px 70px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: $color-bg;
+  color: $color-text;
+  text-align: center;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  margin: 0 auto 20px;
+  font-family: $font-serif;
+  font-size: clamp(42px, 5.8vw, 64px);
+  font-weight: 400;
+  line-height: 0.99;
+  letter-spacing: -2.5px;
+  color: $color-text;
+}
+
+.hero h1 span {
+  display: inline;
+}
+
+.hero-lead {
+  max-width: 600px;
+  margin: 22px auto 12px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: $color-text;
+}
+
+.hero-description {
+  max-width: 500px;
+  margin: 14px auto 30px;
+  color: $color-text-muted;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-btn {
+  min-height: 42px;
+  padding: 0 21px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid $color-text;
+  border-radius: $radius-sm;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color $transition-fast, color $transition-fast;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.hero-btn--whatsapp {
+  border-color: $color-green;
+  background: $color-green;
+  color: #fff;
+
+  &:hover {
+    background: $color-green-hover;
+    border-color: $color-green-hover;
+  }
+}
+
+.hero-btn--call {
+  background: transparent;
+  color: $color-text;
+
+  &:hover {
+    background: $color-bg-alt;
+  }
+}
+
+.hero-enquiry {
+  margin: 0 12px;
+  color: $color-text;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: $color-purple;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: $bp-tablet) {
+  .hero {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 7vw, 58px);
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .hero {
+    padding: 60px 20px 50px;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 9vw, 48px);
+    line-height: 1.06;
+    letter-spacing: -1.7px;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .hero-lead {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .hero-description {
+    margin-bottom: 26px;
+    font-size: 12px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .hero-btn {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .hero-enquiry {
+    align-self: center;
+    margin: 8px 0 0;
+    padding: 8px;
+  }
+}

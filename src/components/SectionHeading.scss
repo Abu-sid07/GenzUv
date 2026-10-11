@@ -1,0 +1,48 @@
+@use '../styles/variables' as *;
+
+.section-heading {
+  margin-bottom: 40px;
+
+  &--center {
+    text-align: center;
+
+    .section-heading__subtitle {
+      margin-inline: auto;
+    }
+  }
+}
+
+.section-heading__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: $color-text-muted;
+}
+
+.section-heading__title {
+  font-family: $font-serif;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: $color-text;
+
+  .section-heading--dark & {
+    color: $color-text-inverse;
+  }
+}
+
+.section-heading__subtitle {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: $color-text-muted;
+  max-width: 560px;
+
+  .section-heading--dark & {
+    color: $color-text-light;
+  }
+}
